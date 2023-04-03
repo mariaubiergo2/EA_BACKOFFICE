@@ -19,6 +19,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ChallengesComponent } from './challenges/challenges.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormchallengeComponent } from './formchallenge/formchallenge.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     UsuariosComponent,
     ChallengesComponent,
-    MapaComponent
+    MapaComponent,
+    FormchallengeComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
