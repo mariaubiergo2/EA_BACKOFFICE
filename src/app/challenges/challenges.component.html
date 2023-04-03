@@ -15,7 +15,8 @@
               </mat-menu>
             </mat-card-title>
           </mat-card-header>
-          <mat-card-content class="dashboard-card-content" [innerHTML]="card.html">
+          <!-- <mat-card-content class="dashboard-card-content" [innerHTML]="card.html"> -->
+          <mat-card-content class="dashboard-card-content">
             <!-- <div>{{card.html}}</div> -->
             <ng-container *ngComponentOutlet="card.component"></ng-container>
           </mat-card-content>
