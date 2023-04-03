@@ -15,12 +15,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ChallengesComponent } from './challenges/challenges.component';
+import { MapaComponent } from './mapa/mapa.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsuariosComponent,
+    ChallengesComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
