@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { User } from 'src/models/user';
+import { Challenge } from 'src/models/challenge';
 
 
 @Component({
@@ -9,7 +10,8 @@ import { User } from 'src/models/user';
   styleUrls: ['./formchallenge.component.scss']
 })
 export class FormchallengeComponent {
-  model:User = {_id:'',name:'',surname:'',email:'',password:'', xp:0};
+  // model:User = {_id:'',name:'',surname:'',email:'',password:'', xp:0};
+  model:Challenge = {_id:'',name:'', descripcion:'', xp:0, latitud:'', longitud:''}  
 
   ngOnInit(): void {
     // this.obtenerUsers();
