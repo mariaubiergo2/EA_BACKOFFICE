@@ -14,7 +14,6 @@ export class FormchallengeComponent {
   model:Challenge = {_id:'',name:'', descripcion:'', xp:0, latitud:'', longitud:''}  
 
   ngOnInit(): void {
-    // this.obtenerUsers();
   }
 
   agregarUser(){

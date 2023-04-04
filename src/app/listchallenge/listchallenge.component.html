@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-8">
+        <br>
+      <!-- <h2>Read Data: </h2> -->
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Descripcion</th>
+            <th>Xp</th>
+            <th>Latitud</th>
+            <th>Longitud</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let challenge of challenges; let i = index">
+            <!--<td>{{employee._id}}</td>-->
+            <td>{{challenge._id}}</td>
+            <td>{{challenge.name}}</td>
+            <td>{{challenge.descripcion}}</td>
+            <td>{{challenge.xp}}</td>
+            <td>{{challenge.latitud}}</td>
+            <td>{{challenge.longitud}}</td>
+            <td>
+              <a (click)="editarChallenge(i)" class="btn btn-success">
+                Edit
+              </a>
+              <a (click)="eliminarChallenge(challenge._id)" class="btn btn-danger">
+                Delete
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>    
+  </div>

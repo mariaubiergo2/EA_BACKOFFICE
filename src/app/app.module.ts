@@ -21,6 +21,8 @@ import { MapaComponent } from './mapa/mapa.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormchallengeComponent } from './formchallenge/formchallenge.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListchallengeComponent } from './listchallenge/listchallenge.component';
+import { ModifychallengeComponent } from './modifychallenge/modifychallenge.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ChallengesComponent,
     MapaComponent,
     FormchallengeComponent,
+    ListchallengeComponent,
+    ModifychallengeComponent,
   ],
   imports: [
     BrowserModule,
