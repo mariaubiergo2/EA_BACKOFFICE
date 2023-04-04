@@ -8,3 +8,6 @@ export interface User {
     password: string;
     xp: number;
 };
+
+//model:User = {_id:'',name:'',surname:'',email:'',password:'', xp:0};
+  

@@ -23,6 +23,9 @@ import { FormchallengeComponent } from './components/challenge/formchallenge/for
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListchallengeComponent } from './components/challenge/listchallenge/listchallenge.component';
 import { ModifychallengeComponent } from './components/challenge/modifychallenge/modifychallenge.component';
+import { FormuserComponent } from './components/user/formuser/formuser.component';
+import { ListuserComponent } from './components/user/listuser/listuser.component';
+import { ModifyuserComponent } from './components/user/modifyuser/modifyuser.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { ModifychallengeComponent } from './components/challenge/modifychallenge
     FormchallengeComponent,
     ListchallengeComponent,
     ModifychallengeComponent,
+    FormuserComponent,
+    ListuserComponent,
+    ModifyuserComponent,
   ],
   imports: [
     BrowserModule,
