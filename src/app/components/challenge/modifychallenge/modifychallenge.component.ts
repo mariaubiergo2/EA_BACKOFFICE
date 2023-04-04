@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Challenge } from 'src/models/challenge';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-modifychallenge',

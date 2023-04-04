@@ -15,14 +15,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { UsuariosComponent } from './usuarios/usuarios.component';
-import { ChallengesComponent } from './challenges/challenges.component';
-import { MapaComponent } from './mapa/mapa.component';
+import { UsuariosComponent } from './components/user/usuarios/usuarios.component';
+import { ChallengesComponent } from './components/challenge/challenges/challenges.component';
+import { MapaComponent } from './components/map/mapa/mapa.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormchallengeComponent } from './formchallenge/formchallenge.component';
+import { FormchallengeComponent } from './components/challenge/formchallenge/formchallenge.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListchallengeComponent } from './listchallenge/listchallenge.component';
-import { ModifychallengeComponent } from './modifychallenge/modifychallenge.component';
+import { ListchallengeComponent } from './components/challenge/listchallenge/listchallenge.component';
+import { ModifychallengeComponent } from './components/challenge/modifychallenge/modifychallenge.component';
 
 @NgModule({
   declarations: [

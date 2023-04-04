@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { UsuariosComponent } from './usuarios/usuarios.component';
-import { ChallengesComponent } from './challenges/challenges.component';
-import { MapaComponent } from './mapa/mapa.component';
+import { UsuariosComponent } from './components/user/usuarios/usuarios.component';
+import { ChallengesComponent } from './components/challenge/challenges/challenges.component';
+import { MapaComponent } from './components/map/mapa/mapa.component';
 
 const routes: Routes = [
   {
