@@ -7,26 +7,26 @@
           <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Descripcion</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Password</th>
             <th>Xp</th>
-            <th>Latitud</th>
-            <th>Longitud</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let challenge of challenges; let i = index">
+          <tr *ngFor="let user of users; let i = index">
             <!--<td>{{employee._id}}</td>-->
-            <td>{{challenge._id}}</td>
-            <td>{{challenge.name}}</td>
-            <td>{{challenge.descripcion}}</td>
-            <td>{{challenge.xp}}</td>
-            <td>{{challenge.latitud}}</td>
-            <td>{{challenge.longitud}}</td>
+            <td>{{user._id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.surname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.xp}}</td>
             <td>
-              <a (click)="editarChallenge(i)" class="btn btn-success">
+              <a (click)="editarUser(i)" class="btn btn-success">
                 Edit
               </a>
-              <a (click)="eliminarChallenge(challenge._id)" class="btn btn-danger">
+              <a (click)="eliminarUser(user._id)" class="btn btn-danger">
                 Delete
               </a>
             </td>

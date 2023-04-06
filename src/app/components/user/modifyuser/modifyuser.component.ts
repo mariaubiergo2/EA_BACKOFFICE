@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Challenge } from 'src/models/challenge';
+import { User } from 'src/models/user';
 
 @Component({
   selector: 'app-modifyuser',
@@ -7,7 +8,7 @@ import { Challenge } from 'src/models/challenge';
   styleUrls: ['./modifyuser.component.scss']
 })
 export class ModifyuserComponent {
-  model:Challenge = {_id:'',name:'', descripcion:'', xp:0, latitud:'', longitud:''}
+  model:User = {_id:'',name:'', surname:'', email:"", password:'', xp:0}
 
   ngOnInit(): void {
   }

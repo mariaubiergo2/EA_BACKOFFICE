@@ -10,4 +10,3 @@ export interface User {
 };
 
 //model:User = {_id:'',name:'',surname:'',email:'',password:'', xp:0};
-  
