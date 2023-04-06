@@ -26,6 +26,7 @@ import { ModifychallengeComponent } from './components/challenge/modifychallenge
 import { FormuserComponent } from './components/user/formuser/formuser.component';
 import { ListuserComponent } from './components/user/listuser/listuser.component';
 import { ModifyuserComponent } from './components/user/modifyuser/modifyuser.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ModifyuserComponent } from './components/user/modifyuser/modifyuser.com
     FormuserComponent,
     ListuserComponent,
     ModifyuserComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
