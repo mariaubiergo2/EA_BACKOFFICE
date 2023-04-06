@@ -27,6 +27,8 @@ import { FormuserComponent } from './components/user/formuser/formuser.component
 import { ListuserComponent } from './components/user/listuser/listuser.component';
 import { ModifyuserComponent } from './components/user/modifyuser/modifyuser.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './components/auth/auth.service';
+import { AuthGuardService } from './components/auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,7 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
