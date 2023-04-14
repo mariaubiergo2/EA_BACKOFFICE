@@ -25,7 +25,7 @@ export class ChallengeService {
   } 
 
   actualizarChallenge(id:String, challenge: Challenge): Observable<any>{
-    return this.http.put(this.url + '/update/' + id, challenge);
+    return this.http.post(this.url + '/update/' + id, challenge);
   }
 
 }

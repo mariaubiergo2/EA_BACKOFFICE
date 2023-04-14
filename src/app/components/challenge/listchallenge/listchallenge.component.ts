@@ -43,8 +43,9 @@ export class ListchallengeComponent {
     }    
   }
 
-  editarChallenge(id:any){
-    
+  editarChallenge(i:any){
+    this.sharedDataService.challenge = this.challenges[i];
+    this.sharedDataService.editClicked.next(true);
   }
 
 }
