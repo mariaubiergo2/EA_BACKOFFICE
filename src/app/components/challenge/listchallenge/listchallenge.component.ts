@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Challenge } from 'src/models/challenge';
+import { ChallengeService } from 'src/service/challenge.service';
 
 @Component({
   selector: 'app-listchallenge',
@@ -7,21 +8,23 @@ import { Challenge } from 'src/models/challenge';
   styleUrls: ['./listchallenge.component.scss']
 })
 export class ListchallengeComponent {
-  model:Challenge = {_id:'',name:'', descripcion:'', xp:0, latitud:'', longitud:''}  
+  model:Challenge = {_id:'',name:'', descr:'', exp:0, lat:'', long:''}  
+
+  constructor(private challengeService: ChallengeService) {}
 
   ngOnInit(): void {
-    // this.obtenerUsers();
+    this.obtenerChallenges();
   }
 
   challenges: Challenge [] = [];
 
-  obtenerUsers(){
-    // this._employeeService.getUsers().subscribe(data => {
-    //   console.log(data);
-    //   this.users = data;
-    // }, error => {
-    //   console.log(error);
-    // })
+  obtenerChallenges(){
+    this.challengeService.getChallenges().subscribe(data => {
+      console.log(data);
+      this.challenges = data;
+    }, error => {
+      console.log(error);
+    })
   }
 
   eliminarChallenge(id:string){

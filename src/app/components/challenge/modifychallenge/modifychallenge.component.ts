@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./modifychallenge.component.scss']
 })
 export class ModifychallengeComponent {
-  model:Challenge = {_id:'',name:'', descripcion:'', xp:0, latitud:'', longitud:''}
+  model:Challenge = {_id:'',name:'', descr:'', exp:0, lat:'', long:''}
 
   ngOnInit(): void {
   }

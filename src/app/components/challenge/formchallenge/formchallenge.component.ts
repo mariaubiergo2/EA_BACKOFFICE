@@ -11,7 +11,7 @@ import { Challenge } from 'src/models/challenge';
 })
 export class FormchallengeComponent {
   // model:User = {_id:'',name:'',surname:'',email:'',password:'', xp:0};
-  model:Challenge = {_id:'',name:'', descripcion:'', xp:0, latitud:'', longitud:''}  
+  model:Challenge = {_id:'',name:'', descr:'', exp:0, lat:'', long:''}
 
   ngOnInit(): void {
   }
