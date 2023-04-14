@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Challenge } from 'src/models/challenge';
 import { ChallengeService } from 'src/service/challenge.service';
+import { FormchallengeComponent } from '../formchallenge/formchallenge.component';
+import { SharedDataService } from 'src/service/challenge.sharedservices';
 
 @Component({
   selector: 'app-listchallenge',
@@ -10,14 +12,13 @@ import { ChallengeService } from 'src/service/challenge.service';
 export class ListchallengeComponent {
   model:Challenge = {_id:'',name:'', descr:'', exp:0, lat:'', long:''}  
 
-  constructor(private challengeService: ChallengeService) {}
-
-  // onChallengeAdded() {
-  //   this.obtenerChallenges();
-  // }
+  constructor(private challengeService: ChallengeService, private sharedDataService: SharedDataService) {}
 
   ngOnInit(): void {
     this.obtenerChallenges();
+    this.sharedDataService.challengeAdded.subscribe(() => {
+      this.obtenerChallenges();
+    });
   }
 
   challenges: Challenge [] = [];
@@ -32,26 +33,18 @@ export class ListchallengeComponent {
   }
 
   eliminarChallenge(id:string){
-    // var answer = confirm('Estas seguro de querer eliminarlo?');
-    // if(answer){
-    //   this._employeeService.eliminarUser(id).subscribe(data => {
-    //     this.users = [];
-    //     this.obtenerUsers();    
-    //   }, error => {
-    //     console.log(error);
-    //   })
-    // }    
+    var answer = confirm('Estas seguro de querer eliminarlo?');
+    if(answer){
+      this.challengeService.deleteChallenge(id).subscribe(data => {
+        this.obtenerChallenges();    
+      }, error => {
+        console.log(error);
+      })
+    }    
   }
 
   editarChallenge(id:any){
-    // this._employeeService.actualizarUser(id,this.model2).subscribe(data =>{
-    //   this.model2 = {_id:'',name:'',surname:'',email:'',password:0};
-    //   this.hideUpdate = true;
-    //   this.users = [];
-    //   this.obtenerUsers();
-    // }, error => {
-    //   console.log(error);
-    // })
+    
   }
 
 }

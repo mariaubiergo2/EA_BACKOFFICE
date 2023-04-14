@@ -20,20 +20,12 @@ export class ChallengeService {
     return this.http.post(this.url + '/add', challenge);
   }
 
-//   eliminarUser(id: String): Observable<any> {
-//     return this.http.delete(this.url + '/' + id);
-//   } 
+  deleteChallenge(id: String): Observable<any> {
+    return this.http.delete(this.url + '/delete/' + id);
+  } 
 
-//   eliminarAllUsers(): Observable<any> {
-//     return this.http.delete(this.url + '/');
-//   } 
-
-//   añadirUser(user: User): Observable<any>{
-//     return this.http.post(this.url + '/', user);
-//   }
-
-//   actualizarUser(id:String, user: User): Observable<any>{
-//     return this.http.put(this.url + '/' + id, user);
-//   }
+  actualizarChallenge(id:String, challenge: Challenge): Observable<any>{
+    return this.http.put(this.url + '/update/' + id, challenge);
+  }
 
 }

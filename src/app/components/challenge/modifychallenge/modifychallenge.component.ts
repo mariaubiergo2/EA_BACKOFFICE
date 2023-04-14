@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Challenge } from 'src/models/challenge';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChallengeService } from 'src/service/challenge.service';
 
 @Component({
   selector: 'app-modifychallenge',
@@ -10,18 +11,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class ModifychallengeComponent {
   model:Challenge = {_id:'',name:'', descr:'', exp:0, lat:'', long:''}
 
+  constructor(private challengeService: ChallengeService) {}
+
   ngOnInit(): void {
   }
 
   editarChallenge(id:any){
-    // this._employeeService.actualizarUser(id,this.model2).subscribe(data =>{
-    //   this.model2 = {_id:'',name:'',surname:'',email:'',password:0};
-    //   this.hideUpdate = true;
-    //   this.users = [];
-    //   this.obtenerUsers();
-    // }, error => {
-    //   console.log(error);
-    // })
+    this.challengeService.actualizarChallenge(id,this.model).subscribe(data =>{
+      this.model = {_id:'',name:'', descr:'', exp:0, lat:'', long:''};
+      // this.hideUpdate = true;
+      // this.users = [];
+      // this.obtenerChallenges();
+    }, error => {
+      console.log(error);
+    })
   }
 
 }

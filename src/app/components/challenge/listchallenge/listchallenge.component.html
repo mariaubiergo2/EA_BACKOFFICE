@@ -23,7 +23,7 @@
             <td>{{challenge.lat}}</td>
             <td>{{challenge.long}}</td>
             <td>
-              <a (click)="editarChallenge(i)" class="btn btn-success">
+              <a (click)="editarChallenge(challenge._id)" class="btn btn-success">
                 Edit
               </a>
               <a (click)="eliminarChallenge(challenge._id)" class="btn btn-danger">
@@ -33,8 +33,5 @@
           </tr>
         </tbody>
       </table>
-    </div>    
-    <!-- <div class="col-sm-4">
-      <app-formchallenge (challengeAdded)="onChallengeAdded()"></app-formchallenge>
-    </div> -->
+    </div>
   </div>  
