@@ -12,6 +12,10 @@ export class ListchallengeComponent {
 
   constructor(private challengeService: ChallengeService) {}
 
+  // onChallengeAdded() {
+  //   this.obtenerChallenges();
+  // }
+
   ngOnInit(): void {
     this.obtenerChallenges();
   }

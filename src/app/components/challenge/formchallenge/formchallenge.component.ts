@@ -1,7 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, Input, Output, EventEmitter } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { User } from 'src/models/user';
 import { Challenge } from 'src/models/challenge';
+import { ChallengeService } from 'src/service/challenge.service';
 
 
 @Component({
@@ -11,18 +12,23 @@ import { Challenge } from 'src/models/challenge';
 })
 export class FormchallengeComponent {
   // model:User = {_id:'',name:'',surname:'',email:'',password:'', xp:0};
-  model:Challenge = {_id:'',name:'', descr:'', exp:0, lat:'', long:''}
+  model:any = {name:'', descr:'', exp:0, lat:'', long:''}
+
+  @Output() challengeAdded = new EventEmitter<boolean>();
+
+  constructor(private challengeService: ChallengeService) {}
 
   ngOnInit(): void {
   }
 
-  agregarUser(){
-  //   this._employeeService.añadirUser(this.model).subscribe(data => {
-  //     this.users = [];
-  //     this.obtenerUsers();
-  //     this.model = {_id:'',name:'',surname:'',email:'',password:0};  
-  //   }, error => {
-  //     console.log(error);
-  //   })
+  addChallenge(){
+    this.challengeService.addChallenge(this.model).subscribe(data => {
+      console.log(this.model);
+      this.model = {name:'', descr:'', exp:0, lat:'', long:''};
+      this.challengeAdded.emit(true);
+    }, error => {
+      console.log(error);
+      this.challengeAdded.emit(false);
+    })
   }
 }

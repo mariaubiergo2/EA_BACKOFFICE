@@ -16,9 +16,9 @@ export class ChallengeService {
     return this.http.get<Challenge[]>(this.url + '/get/all');
   }
 
-//   getUsers(): Observable<User[]> {
-//     return this.http.get<User[]>(this.url + '/all');
-//   }
+  addChallenge(challenge: Challenge): Observable<any>{
+    return this.http.post(this.url + '/add', challenge);
+  }
 
 //   eliminarUser(id: String): Observable<any> {
 //     return this.http.delete(this.url + '/' + id);
