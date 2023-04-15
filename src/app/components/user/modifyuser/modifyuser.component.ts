@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Challenge } from 'src/models/challenge';
 import { User } from 'src/models/user';
+import { SharedDataService } from 'src/service/challenge.sharedservices';
+import { UserService } from 'src/service/user.service';
 
 @Component({
   selector: 'app-modifyuser',
@@ -8,19 +10,22 @@ import { User } from 'src/models/user';
   styleUrls: ['./modifyuser.component.scss']
 })
 export class ModifyuserComponent {
-  model:User = {_id:'',name:'', surname:'', email:"", password:'', xp:0}
+  model:User = {_id:"", name:'', surname:'', username:"", email:"", password:'',level:0, exp:0, role:""}  
+
+  constructor(private userChallenge: UserService, private sharedDataService: SharedDataService) {}
 
   ngOnInit(): void {
+    this.sharedDataService.editClickedUser.subscribe(() => {
+      this.model = this.sharedDataService.user;
+    });
   }
 
-  editarChallenge(id:any){
-    // this._employeeService.actualizarUser(id,this.model2).subscribe(data =>{
-    //   this.model2 = {_id:'',name:'',surname:'',email:'',password:0};
-    //   this.hideUpdate = true;
-    //   this.users = [];
-    //   this.obtenerUsers();
-    // }, error => {
-    //   console.log(error);
-    // })
+  editarUser(id:any){
+    this.userChallenge.actualizarUser(id,this.model).subscribe(data =>{
+      this.model = {_id:"", name:'', surname:'', username:"", email:"", password:'',level:0, exp:0, role:""};
+      this.sharedDataService.userAdded.next(true);
+    }, error => {
+      console.log(error);
+    })
   }
 }
