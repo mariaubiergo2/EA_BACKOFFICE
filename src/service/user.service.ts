@@ -8,7 +8,7 @@ import { User } from 'src/models/user';
 })
 
 export class UserService {
-  url = 'http://localhost:3002/user';
+  url = 'http://127.0.0.1:3002/user';
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +26,10 @@ export class UserService {
 
   actualizarUser(id:String, user: User): Observable<any>{
     return this.http.post(this.url + '/update/' + id, user);
+  }
+
+  disableUser(id: String, body:any): Observable<any> {
+    return this.http.post(this.url + '/disable/' + id, body);
   }
 
 }

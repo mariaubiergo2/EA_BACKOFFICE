@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit  } from "@angular/core";
 import { AuthService } from "../auth/auth.service";
 
 @Component({
@@ -8,6 +8,9 @@ import { AuthService } from "../auth/auth.service";
 })
 
 export class LoginComponent {
+
+  public show:boolean = true;
+  ngOnInit () {  }
 
   email: string = '';
   password: string = '';
@@ -21,6 +24,8 @@ export class LoginComponent {
     if (username === "admin" && pass === "admin") {
       // this.isLoggedIn = true;
       this.authService.setLoggedInState(true);
+        this.show = false;
+      
       return true;
     }
     this.authService.setLoggedInState(false);

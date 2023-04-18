@@ -49,4 +49,16 @@ constructor(private userService: UserService, private sharedDataService: SharedD
     this.sharedDataService.user = this.users[i];
     this.sharedDataService.editClickedUser.next(true);
   }
+
+  deshabilitarUser(id:string){
+    var answer = confirm('Estas seguro de querer deshabilitarlo?');
+    if(answer){
+      const body = null;
+      this.userService.disableUser(id, body).subscribe(data => {
+        this.obtenerUsers();    
+      }, error => {
+        console.log(error);
+      })
+    }    
+  }
 }

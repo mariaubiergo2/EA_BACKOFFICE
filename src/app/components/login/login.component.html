@@ -1,4 +1,6 @@
 <div class="login">
+  <ng-container *ngIf="show">
+
     <form class="custom-form" method="post">
       <h1>Login</h1>
       <input
@@ -17,4 +19,5 @@
       />
       <button type="submit" (click)="login(email, password)">Log in</button>
     </form>
+  </ng-container>
   </div>

@@ -17,7 +17,7 @@
     padding: 2rem 3rem;
     margin: auto;
     border-radius: 2.5rem;
-    background-color: #ecf0f3;
+    background-color: #ebf6ff;
     box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
     color: black;
     margin-top: 10rem;
@@ -32,7 +32,7 @@
     box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8), inset 5px 5px 10px
         rgba(0, 0, 0, 0.1);
     border: 0 none;
-    background: #ebf5fc;
+    background: #f5fbfe;
   }
   .custom-form button {
     text-transform: uppercase;
@@ -41,11 +41,20 @@
     font-size: 0.875rem;
     color: #ffffff;
     font-weight: bold;
-    background-color: #bcd8c1;
+    background-color: #87b7dc;
     width: 100%;
     display: block;
     padding: 0.875rem 1rem;
     border-radius: 1.5rem;
     box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
+  }
+  
+  .custom-form button:hover {
+    background: #005da5;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
   }

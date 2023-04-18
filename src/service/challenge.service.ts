@@ -8,7 +8,7 @@ import { Challenge } from 'src/models/challenge';
 })
 
 export class ChallengeService {
-  url = 'http://localhost:3002/challenge';
+  url = 'http://127.0.0.1:3002/challenge';
 
   constructor(private http: HttpClient) { }
 

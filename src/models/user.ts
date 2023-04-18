@@ -10,6 +10,7 @@ export interface User {
     level: number;
     exp: number;
     role: string;
+    active?:boolean;
 };
 
 //model:User = {_id:'',name:'',surname:'',email:'',password:'', xp:0};
