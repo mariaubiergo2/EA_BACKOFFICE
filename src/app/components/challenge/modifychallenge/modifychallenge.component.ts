@@ -18,7 +18,7 @@ export class ModifychallengeComponent {
     this.sharedDataService.editClicked.subscribe(() => {
       this.model = this.sharedDataService.challenge;
     });
-  }
+  } 
 
   editarChallenge(id:any){
     this.challengeService.actualizarChallenge(id,this.model).subscribe(data =>{

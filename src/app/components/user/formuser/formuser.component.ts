@@ -22,7 +22,7 @@ export class FormuserComponent {
   agregarUser(){
     this.userService.addUsers(this.model).subscribe(data => {
       console.log(this.model);
-      this.model = {_id:"", name:'', surname:'', username:"", email:"", password:'',level:0, exp:'', role:"user"};   
+      this.model = {name:'', surname:'', username:"", email:"", password:'',level:0, exp:'', role:"user"};   
       this.sharedDataService.userAdded.next(true);   
     }, error => {
       console.log(this.model)
