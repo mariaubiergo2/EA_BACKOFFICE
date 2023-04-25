@@ -29,6 +29,8 @@ import { ModifyuserComponent } from './components/user/modifyuser/modifyuser.com
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './components/auth/auth.service';
 import { AuthGuardService } from './components/auth/auth-guard.service';
+import { GoogleMapsModule } from '@angular/google-maps'
+
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { AuthGuardService } from './components/auth/auth-guard.service';
     MatMenuModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
