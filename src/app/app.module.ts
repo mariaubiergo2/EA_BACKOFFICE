@@ -29,8 +29,8 @@ import { ModifyuserComponent } from './components/user/modifyuser/modifyuser.com
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './components/auth/auth.service';
 import { AuthGuardService } from './components/auth/auth-guard.service';
-import { GoogleMapsModule } from '@angular/google-maps'
-//import { NgConfirmModule } from 'ng-confirm-box';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 
 @NgModule({
@@ -65,7 +65,10 @@ import { GoogleMapsModule } from '@angular/google-maps'
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'primary'
+    })
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

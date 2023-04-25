@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Challenge } from 'src/models/challenge';
 import { User } from 'src/models/user';
 import { SharedDataService } from 'src/service/challenge.sharedservices';
@@ -25,6 +25,13 @@ constructor(private userService: UserService, private sharedDataService: SharedD
 
   users: User [] = [];
 
+  public popoverTitle: string = 'Atención';
+  public popoverMessage: string = 'Seguro que quieres eliminarlo definitivamente?';
+
+  public confirmClicked: boolean=false;
+  public cancelClicked: boolean=false;
+
+
   obtenerUsers(){
     this.userService.getUsers().subscribe(data => {
       console.log(data);
@@ -35,14 +42,11 @@ constructor(private userService: UserService, private sharedDataService: SharedD
   }
 
   eliminarUser(id:string){
-    var answer = confirm('Estas seguro de querer eliminarlo?');
-    if(answer){
-      this.userService.deleteUser(id).subscribe(data => {
-        this.obtenerUsers();    
-      }, error => {
-        console.log(error);
-      })
-    }    
+    this.userService.deleteUser(id).subscribe(data => {
+      this.obtenerUsers();    
+    }, error => {
+      console.log(error);
+    })        
   }
 
   editarUser(i:any){
@@ -51,14 +55,11 @@ constructor(private userService: UserService, private sharedDataService: SharedD
   }
 
   deshabilitarUser(id:string){
-    var answer = confirm('Estas seguro de querer deshabilitarlo?');
-    if(answer){
-      const body = null;
-      this.userService.disableUser(id, body).subscribe(data => {
-        this.obtenerUsers();    
-      }, error => {
-        console.log(error);
-      })
-    }    
+    const body = null;
+    this.userService.disableUser(id, body).subscribe(data => {
+      this.obtenerUsers();    
+    }, error => {
+      console.log(error);
+    }) 
   }
 }

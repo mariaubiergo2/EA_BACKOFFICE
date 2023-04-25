@@ -29,7 +29,13 @@
               <a (click)="editarUser(i)" class="btn btn-success">
                 Edit
               </a>
-              <a (click)="eliminarUser(user._id)" class="btn btn-danger">
+              <a class="btn btn-danger"
+                  mwlConfirmationPopover
+                  [popoverTitle]="popoverTitle"
+                  [popoverMessage]="popoverMessage"
+                  placement="left"
+                  (confirm)="eliminarUser(user._id)"
+                  (cancel)="cancelClicked=true">
                 Delete
               </a>
               <a (click)="deshabilitarUser(user._id)" class="btn btn-warning">
