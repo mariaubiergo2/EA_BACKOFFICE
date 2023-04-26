@@ -31,6 +31,7 @@ import { AuthService } from './components/auth/auth.service';
 import { AuthGuardService } from './components/auth/auth-guard.service';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -66,9 +67,10 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     ReactiveFormsModule,
     FormsModule,
     GoogleMapsModule,
+    NgxPaginationModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'primary'
-    }),
+    })
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
