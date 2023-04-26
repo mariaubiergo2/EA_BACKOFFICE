@@ -12,9 +12,17 @@ export class ChallengeService {
 
   constructor(private http: HttpClient) { }
 
-  getChallenges(): Observable<Challenge[]> {
+  getAllChallenges(): Observable<Challenge[]> {
     return this.http.get<Challenge[]>(this.url + '/get/all');
   }
+
+  getChallenges(pageNumber: number, nPerPage: number): Observable<Challenge[]> {
+    return this.http.get<Challenge[]>(this.url + '/get/pagination/' + pageNumber + '/' + nPerPage);
+  }
+
+  getChallengeCount(): Observable<String>{
+    return this.http.get<String>(this.url + '/count');
+  } 
 
   addChallenge(challenge: Challenge): Observable<any>{
     return this.http.post(this.url + '/add', challenge);

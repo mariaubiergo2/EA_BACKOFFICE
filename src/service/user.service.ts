@@ -12,13 +12,17 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUsersPaginate(page:number): Observable<User[]> {
-    return this.http.get<User[]>(this.url + '/get/?page=' + page);
-  }
-
-  getUsers(): Observable<User[]> {
+  getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.url + '/get/all');
   }
+
+  getUsers(pageNumber: number, nPerPage: number): Observable<User[]> {
+    return this.http.get<User[]>(this.url + '/get/pagination/' + pageNumber + '/' + nPerPage);
+  }
+
+  getUserCount(): Observable<String>{
+    return this.http.get<String>(this.url + '/count');
+  } 
 
   addUsers(user: User): Observable<any>{
     return this.http.post(this.url + '/signup', user);

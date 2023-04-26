@@ -1,27 +1,25 @@
 <div class="row"> 
   <div>
-        <br>
-        <br>
-      <!-- <h2>Read Data: </h2> -->
-      <table class="table table-bordered" style="width:100%">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Xp</th>
-            <th>Active?</th>
-          </tr>
-        </thead>
+    <br>
+      <br>
+        <table class="table table-bordered" style="width:100%">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>EXP</th>
+              <th>Active</th>
+            </tr>
+          </thead>
         <tbody>
-          <tr *ngFor="let user of users| paginate: {
-                  itemsPerPage: 3,
-                  currentPage: pagination,
-                  totalItems: allUsers
+          <tr *ngFor="let user of users | paginate: {
+                  itemsPerPage: nPerPage,
+                  currentPage: pageNumber,
+                  totalItems: count
                 }, let i = index">
-            <!--<td>{{employee._id}}</td>-->
             <td>{{user._id}}</td>
             <td>{{user.name}}</td>
             <td>{{user.surname}}</td>
@@ -33,26 +31,34 @@
               <a (click)="editarUser(i)" class="btn btn-success">
                 Edit
               </a>
-              <a class="btn btn-danger"
+                <a class="btn btn-danger"
                   mwlConfirmationPopover
                   [popoverTitle]="popoverTitle"
                   [popoverMessage]="popoverMessage"
                   placement="left"
                   (confirm)="eliminarUser(user._id)"
                   (cancel)="cancelClicked=true">
-                Delete
-              </a>
-              <a (click)="deshabilitarUser(user._id)" class="btn btn-warning">
-                Disable
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table> 
+                  Delete
+                </a>
+                <a (click)="deshabilitarUser(user._id)" class="btn btn-warning">
+                  Disable
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table> 
       <div class="d-flex justify-content-center">
         <pagination-controls
-          (pageChange)="renderPage($event)"
-        ></pagination-controls>
+          (pageChange)="renderPage($event)">
+        </pagination-controls>
+        <a>
+          <select (change)="renderSize($event)">
+            <option *ngFor="let size of tableSizes">
+              {{size}}
+            </option>
+          </select>
+        </a>
       </div> 
-    </div> 
+    <div>
   </div>
+</div>
