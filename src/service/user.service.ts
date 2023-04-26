@@ -12,6 +12,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  getUsersPaginate(page:number): Observable<User[]> {
+    return this.http.get<User[]>(this.url + '/get/?page=' + page);
+  }
+
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.url + '/get/all');
   }

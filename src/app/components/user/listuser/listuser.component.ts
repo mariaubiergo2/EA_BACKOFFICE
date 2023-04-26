@@ -3,7 +3,7 @@ import { Challenge } from 'src/models/challenge';
 import { User } from 'src/models/user';
 import { SharedDataService } from 'src/service/challenge.sharedservices';
 import { UserService } from 'src/service/user.service';
-
+import {NgxPaginationModule} from 'ngx-pagination'
 @Component({
   selector: 'app-listuser',
   templateUrl: './listuser.component.html',
@@ -12,7 +12,8 @@ import { UserService } from 'src/service/user.service';
 export class ListuserComponent {
   model:User = {_id:"", name:'', surname:'', username:"", email:"", password:'',level:0, exp:0, role:""}  
 
-
+allUsers: number = 0;
+pagination: number = 1;
 constructor(private userService: UserService, private sharedDataService: SharedDataService){}
 
   ngOnInit(): void {
@@ -31,6 +32,18 @@ constructor(private userService: UserService, private sharedDataService: SharedD
   public confirmClicked: boolean=false;
   public cancelClicked: boolean=false;
 
+  fetchUsers(){
+    this.userService.getUsersPaginate(this.pagination).subscribe((res:any)=> {
+      console.log(res.data);
+      this.users = res.data;
+      this.allUsers = res.total;
+    })
+  }
+
+  renderPage(event:number) {
+    this.pagination = event;
+    this.fetchUsers();
+  }
 
   obtenerUsers(){
     this.userService.getUsers().subscribe(data => {

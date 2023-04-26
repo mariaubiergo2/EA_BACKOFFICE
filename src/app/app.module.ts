@@ -68,7 +68,7 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     GoogleMapsModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'primary'
-    })
+    }),
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
