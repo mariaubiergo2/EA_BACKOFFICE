@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +30,6 @@ import { AuthGuardService } from './components/auth/auth-guard.service';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { NgxPaginationModule } from 'ngx-pagination';
-
 
 @NgModule({
   declarations: [
@@ -67,10 +65,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     GoogleMapsModule,
     NgxPaginationModule,
     ConfirmationPopoverModule.forRoot({
-      confirmButtonType: 'primary'
+      confirmButtonType: 'danger'
     })
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
