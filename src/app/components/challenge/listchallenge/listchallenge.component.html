@@ -5,11 +5,11 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Description</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
               <th>EXP</th>
-              <th>Latitude</th>
-              <th>Longitude</th>
+              <th>Latitud</th>
+              <th>Longitud</th>
             </tr>
           </thead>
         <tbody>
@@ -26,7 +26,7 @@
             <td>{{challenge.long}}</td>
             <td>
               <a (click)="editarChallenge(i)" class="btn btn-success">
-                Edit
+                Editar
               </a>
               <a class="btn btn-danger"
                 mwlConfirmationPopover
@@ -35,7 +35,7 @@
                 placement="left"
                 (confirm)="eliminarChallenge(challenge._id)"
                 (cancel)="cancelClicked=true">
-                Delete
+                Eliminar
               </a>  
             </td>
           </tr>

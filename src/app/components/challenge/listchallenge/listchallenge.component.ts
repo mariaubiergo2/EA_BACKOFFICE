@@ -9,6 +9,7 @@ import { SharedDataService } from 'src/service/challenge.sharedservices';
   templateUrl: './listchallenge.component.html',
   styleUrls: ['./listchallenge.component.scss']
 })
+
 export class ListchallengeComponent {
   model:Challenge = {_id:'',name:'', descr:'', exp:0, lat:'', long:''}  
 
@@ -34,17 +35,11 @@ export class ListchallengeComponent {
   }
 
   obtenerChallenges(){
-    this.challengeService.getChallenges(this.pageNumber, this.nPerPage).subscribe(data => {
+    //this.challengeService.getUsers(this.pageNumber, this.nPerPage).subscribe(data => { this.challenges = data; })
+    //this.challengeService.getUserCount().subscribe(data => { this.count = Number(data); })
+    this.challengeService.getAllChallenges().subscribe(data => {
       this.challenges = data;
-      this.count = Number(this.challengeService.getChallengeCount());
-    }, error => {
-      console.log(error);
-    })
-  }
-
-  eliminarChallenge(id: string){
-    this.challengeService.deleteChallenge(id).subscribe(data => {
-      this.obtenerChallenges();    
+      this.count = data.length;
     }, error => {
       console.log(error);
     })
@@ -53,6 +48,14 @@ export class ListchallengeComponent {
   editarChallenge(i: any){
     this.sharedDataService.challenge = this.challenges[i];
     this.sharedDataService.editClicked.next(true);
+  }
+
+  eliminarChallenge(id: string){
+    this.challengeService.deleteChallenge(id).subscribe(data => {
+      this.obtenerChallenges();    
+    }, error => {
+      console.log(error);
+    })
   }
 
   renderPage(event: number) {

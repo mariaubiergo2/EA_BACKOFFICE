@@ -1,5 +1,5 @@
 <div class="grid-container">
-    <h1 class="mat-h1">Challenges</h1>
+    <h1 class="mat-h1">Retos</h1>
     <mat-grid-list cols="2" rowHeight="450px">
       <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
         <mat-card class="dashboard-card">
@@ -10,8 +10,8 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
+                <button mat-menu-item>Expandir</button>
+                <button mat-menu-item>Eliminar</button>
               </mat-menu>
             </mat-card-title>
           </mat-card-header>

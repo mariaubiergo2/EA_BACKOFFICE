@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { User } from 'src/models/user';
 
 @Injectable({
@@ -28,10 +28,6 @@ export class UserService {
     return this.http.post(this.url + '/signup', user);
   }
 
-  deleteUser(id: String): Observable<any> {
-    return this.http.delete(this.url + '/delete/' + id);
-  } 
-
   actualizarUser(id:String, user: User): Observable<any>{
     return this.http.post(this.url + '/update/' + id, user);
   }
@@ -40,4 +36,7 @@ export class UserService {
     return this.http.post(this.url + '/disable/' + id, body);
   }
 
+  deleteUser(id: String): Observable<any> {
+    return this.http.delete(this.url + '/delete/' + id);
+  } 
 }

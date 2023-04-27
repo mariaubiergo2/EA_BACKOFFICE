@@ -36,9 +36,11 @@ constructor(private userService: UserService, private sharedDataService: SharedD
   }
 
   obtenerUsers(){
-    this.userService.getUsers(this.pageNumber, this.nPerPage).subscribe(data => {
+    //this.userService.getUsers(this.pageNumber, this.nPerPage).subscribe(data => { this.users = data; })
+    //this.userService.getUserCount().subscribe(data => { this.count = Number(data); })
+    this.userService.getAllUsers().subscribe(data => {
       this.users = data;
-      this.count = Number(this.userService.getUserCount());
+      this.count = data.length;
     }, error => {
       console.log(error);
     })

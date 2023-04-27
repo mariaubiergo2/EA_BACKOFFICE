@@ -28,12 +28,11 @@ export class ChallengeService {
     return this.http.post(this.url + '/add', challenge);
   }
 
-  deleteChallenge(id: String): Observable<any> {
-    return this.http.delete(this.url + '/delete/' + id);
-  } 
-
   actualizarChallenge(id:String, challenge: Challenge): Observable<any>{
     return this.http.post(this.url + '/update/' + id, challenge);
   }
 
+  deleteChallenge(id: String): Observable<any> {
+    return this.http.delete(this.url + '/delete/' + id);
+  } 
 }

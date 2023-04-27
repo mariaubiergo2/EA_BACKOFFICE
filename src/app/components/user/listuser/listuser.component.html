@@ -6,12 +6,12 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Surname</th>
-              <th>Email</th>
-              <th>Password</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Correo eletrónico</th>
+              <th>Contraseña</th>
               <th>EXP</th>
-              <th>Active</th>
+              <th>Activado</th>
             </tr>
           </thead>
         <tbody>
@@ -29,7 +29,10 @@
             <td>{{user.active}}</td>
             <td>
               <a (click)="editarUser(i)" class="btn btn-success">
-                Edit
+                Editar
+              </a>
+              <a (click)="deshabilitarUser(user._id)" class="btn btn-warning">
+                Deshabilitar
               </a>
                 <a class="btn btn-danger"
                   mwlConfirmationPopover
@@ -38,10 +41,7 @@
                   placement="left"
                   (confirm)="eliminarUser(user._id)"
                   (cancel)="cancelClicked=true">
-                  Delete
-                </a>
-                <a (click)="deshabilitarUser(user._id)" class="btn btn-warning">
-                  Disable
+                  Eliminar
                 </a>
               </td>
             </tr>

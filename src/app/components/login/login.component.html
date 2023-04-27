@@ -2,22 +2,22 @@
   <ng-container *ngIf="show">
 
     <form class="custom-form" method="post">
-      <h1>Login</h1>
+      <h1>Iniciar sesión</h1>
       <input
         type="email"
         [(ngModel)]="email"
         name="email"
-        placeholder="Email"
+        placeholder="Correo electrónico"
         required="required"
       />
       <input
         type="password"
         [(ngModel)]="password"
         name="password"
-        placeholder="Password"
+        placeholder="Contraseña"
         required="required"
       />
-      <button type="submit" (click)="login(email, password)">Log in</button>
+      <button type="submit" (click)="login(email, password)">Iniciar</button>
     </form>
   </ng-container>
   </div>

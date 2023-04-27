@@ -16,17 +16,17 @@ export class ChallengesComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Añadir Challenge', cols: 1, rows: 1 , html: '', component: FormchallengeComponent},
-          { title: 'Modificar Challenge', cols: 1, rows: 1 , html: '', component: ModifychallengeComponent},
-          { title: 'Listado Challenges', cols: 1, rows: 1 , html: '', component: ListchallengeComponent},
+          { title: 'Añadir un reto', cols: 1, rows: 1 , html: '', component: FormchallengeComponent},
+          { title: 'Modificar un reto', cols: 1, rows: 1 , html: '', component: ModifychallengeComponent},
+          { title: 'Listado de retos', cols: 1, rows: 1 , html: '', component: ListchallengeComponent},
           // { title: 'Filtro Challenge', cols: 1, rows: 1 , html: '', component: FormchallengeComponent}
         ];
       }
 
       return [
-        { title: 'Añadir Challenge', cols: 1, rows: 1 , html: '', component: FormchallengeComponent},
-        { title: 'Modificar Challenge', cols: 1, rows: 1 , html: '', component: ModifychallengeComponent},
-        { title: 'Listado Challenges', cols: 2, rows: 2 , html: '', component: ListchallengeComponent},
+        { title: 'Añadir un reto', cols: 1, rows: 1 , html: '', component: FormchallengeComponent},
+        { title: 'Modificar un reto', cols: 1, rows: 1 , html: '', component: ModifychallengeComponent},
+        { title: 'Listado de retos', cols: 2, rows: 2 , html: '', component: ListchallengeComponent},
         // { title: 'Filtro Challenge', cols: 1, rows: 1 , html: '', component: FormchallengeComponent}
       ];
     })
