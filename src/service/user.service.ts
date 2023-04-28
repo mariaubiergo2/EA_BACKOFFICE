@@ -36,6 +36,10 @@ export class UserService {
     return this.http.post(this.url + '/disable/' + id, body);
   }
 
+  unableUser(id: String, body:any): Observable<any> {
+    return this.http.post(this.url + '/unable/' + id, body);
+  }
+
   deleteUser(id: String): Observable<any> {
     return this.http.delete(this.url + '/delete/' + id);
   } 

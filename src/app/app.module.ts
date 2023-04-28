@@ -30,6 +30,7 @@ import { AuthGuardService } from './components/auth/auth-guard.service';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FilterPipe } from './components/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ListuserComponent,
     ModifyuserComponent,
     LoginComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
