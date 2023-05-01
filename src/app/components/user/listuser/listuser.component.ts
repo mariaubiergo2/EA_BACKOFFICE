@@ -26,6 +26,8 @@ export class ListuserComponent {
 
   users: User [] = [];
 
+  searchText='';
+
 constructor(private userService: UserService, private sharedDataService: SharedDataService) { }
 
   ngOnInit(): void {
@@ -54,6 +56,15 @@ constructor(private userService: UserService, private sharedDataService: SharedD
   deshabilitarUser(id: string){
     const body = null;
     this.userService.disableUser(id, body).subscribe(data => {
+      this.obtenerUsers();    
+    }, error => {
+      console.log(error);
+    }) 
+  }
+
+  habilitarUser(id: string){
+    const body = null;
+    this.userService.unableUser(id, body).subscribe(data => {
       this.obtenerUsers();    
     }, error => {
       console.log(error);

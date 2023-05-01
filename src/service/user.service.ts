@@ -30,12 +30,20 @@ export class UserService {
     return this.http.post(this.url + '/signup', user);
   }
 
+  getToken(body: any): Observable<any>{
+    return this.http.post(this.url + '/token', body);
+  }
+
   actualizarUser(id:String, user: User): Observable<any>{
     return this.http.post(this.url + '/update/' + id, user);
   }
 
   disableUser(id: String, body:any): Observable<any> {
     return this.http.post(this.url + '/disable/' + id, body);
+  }
+
+  unableUser(id: String, body:any): Observable<any> {
+    return this.http.post(this.url + '/unable/' + id, body);
   }
 
   deleteUser(id: String): Observable<any> {
