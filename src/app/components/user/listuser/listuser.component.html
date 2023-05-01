@@ -1,6 +1,14 @@
 <div class="row"> 
   <div>
     <br>
+      <div>
+          <input 
+              type="text" 
+              class="form-control" 
+              id="test" 
+              name="filter" [(ngModel)]="searchText"
+              placeholder="Filtra por nombre...">
+      </div>
       <br>
         <table class="table table-bordered" style="width:100%">
           <thead>
@@ -15,7 +23,7 @@
             </tr>
           </thead>
         <tbody>
-          <tr *ngFor="let user of users | paginate: {
+          <tr *ngFor="let user of users | appFilter:searchText | paginate : {
                   itemsPerPage: nPerPage,
                   currentPage: pageNumber,
                   totalItems: count
@@ -31,8 +39,11 @@
               <a (click)="editarUser(i)" class="btn btn-success">
                 Editar
               </a>
-              <a (click)="deshabilitarUser(user._id)" class="btn btn-warning">
+              <a *ngIf="user.active" (click)="deshabilitarUser(user._id)" class="btn btn-warning">
                 Deshabilitar
+              </a>
+              <a *ngIf="!user.active" (click)="habilitarUser(user._id)" class="btn btn-warning">
+                Habilitar
               </a>
                 <a class="btn btn-danger"
                   mwlConfirmationPopover
