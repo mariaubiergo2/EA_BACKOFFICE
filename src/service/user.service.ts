@@ -2,14 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { User } from 'src/models/user';
-
+import { environment } from 'src/env/env';
 @Injectable({
   providedIn: 'root'
 })
 
 export class UserService {
-  url = 'http://127.0.0.1:3002/user';
-
+  url = environment.API_URL + "/user";
+  
+  
+  
   constructor(private http: HttpClient) { }
 
   getAllUsers(): Observable<User[]> {
