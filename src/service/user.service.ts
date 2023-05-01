@@ -28,6 +28,10 @@ export class UserService {
     return this.http.post(this.url + '/signup', user);
   }
 
+  getToken(body: any): Observable<any>{
+    return this.http.post(this.url + '/token', body);
+  }
+
   actualizarUser(id:String, user: User): Observable<any>{
     return this.http.post(this.url + '/update/' + id, user);
   }
