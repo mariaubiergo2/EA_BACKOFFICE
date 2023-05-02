@@ -1,21 +1,23 @@
 <div class="row">
-    <div >
-        <br>
-      <!-- <h2>Read Data: </h2> -->
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Descripcion</th>
-            <th>Xp</th>
-            <th>Latitud</th>
-            <th>Longitud</th>
-          </tr>
-        </thead>
+  <div >
+      <br>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>EXP</th>
+              <th>Latitud</th>
+              <th>Longitud</th>
+            </tr>
+          </thead>
         <tbody>
-          <tr *ngFor="let challenge of challenges; let i = index">
-            <!--<td>{{employee._id}}</td>-->
+          <tr *ngFor="let challenge of challenges | paginate: {
+                  itemsPerPage: nPerPage,
+                  currentPage: pageNumber,
+                  totalItems: count
+                }, let i = index">
             <td>{{challenge._id}}</td>
             <td>{{challenge.name}}</td>
             <td>{{challenge.descr}}</td>
@@ -24,14 +26,32 @@
             <td>{{challenge.long}}</td>
             <td>
               <a (click)="editarChallenge(i)" class="btn btn-success">
-                Edit
+                Editar
               </a>
-              <a (click)="eliminarChallenge(challenge._id)" class="btn btn-danger">
-                Delete
-              </a>
+              <a class="btn btn-danger"
+                mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                [popoverMessage]="popoverMessage"
+                placement="left"
+                (confirm)="eliminarChallenge(challenge._id)"
+                (cancel)="cancelClicked=true">
+                Eliminar
+              </a>  
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
-  </div>  
+    <div class="d-flex justify-content-center">
+      <pagination-controls
+        (pageChange)="renderPage($event)">
+      </pagination-controls>
+      <a>
+        <select (change)="renderSize($event)">
+          <option *ngFor="let size of tableSizes">
+            {{size}}
+          </option>
+        </select>
+      </a>
+    </div> 
+  </div>
+</div>  

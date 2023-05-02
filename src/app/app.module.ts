@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,7 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -29,14 +27,16 @@ import { ModifyuserComponent } from './components/user/modifyuser/modifyuser.com
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './components/auth/auth.service';
 import { AuthGuardService } from './components/auth/auth-guard.service';
-import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMapsModule } from '@angular/google-maps';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FilterPipe } from './components/filter.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    DashboardComponent,
     UsuariosComponent,
     ChallengesComponent,
     MapaComponent,
@@ -47,6 +47,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
     ListuserComponent,
     ModifyuserComponent,
     LoginComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -64,9 +65,14 @@ import { GoogleMapsModule } from '@angular/google-maps'
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    NgxPaginationModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger'
+    })
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

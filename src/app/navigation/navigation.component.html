@@ -2,14 +2,15 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+      [opened]="(isHandset$ | async) === false"
+      [disableClose]="true">
+    <mat-toolbar>Menú</mat-toolbar>
     <mat-nav-list>
       <!-- <a mat-list-item href="#">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a> -->
       <a mat-list-item routerLink="/usuarios" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Usuarios</a>
-      <a mat-list-item routerLink="/challenges" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Challenges</a>
+      <a mat-list-item routerLink="/challenges" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Retos</a>
       <a mat-list-item routerLink="/mapa" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Mapa</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -23,7 +24,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>BackOffice</span>
+      <span>Backoffice</span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
