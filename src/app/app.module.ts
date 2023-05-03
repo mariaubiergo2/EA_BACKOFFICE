@@ -31,6 +31,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipe } from './components/filter.pipe';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { FilterPipe } from './components/filter.pipe';
     NgxPaginationModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger'
-    })
+    }),
+    ToastrModule.forRoot({})
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

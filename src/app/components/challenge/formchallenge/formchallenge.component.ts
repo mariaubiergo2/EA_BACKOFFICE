@@ -6,7 +6,7 @@ import { Challenge } from 'src/models/challenge';
 import { ChallengeService } from 'src/service/challenge.service';
 import { ListchallengeComponent } from '../listchallenge/listchallenge.component';
 import { SharedDataService } from 'src/service/challenge.sharedservices';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-formchallenge',
@@ -17,7 +17,7 @@ export class FormchallengeComponent {
   // model:User = {_id:'',name:'',surname:'',email:'',password:'', xp:0};
   model:any = {name:'', descr:'', exp:0, lat:'', long:''}
 
-  constructor(private challengeService: ChallengeService, private sharedDataService: SharedDataService) {}
+  constructor(private challengeService: ChallengeService, private sharedDataService: SharedDataService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
   }
@@ -27,8 +27,16 @@ export class FormchallengeComponent {
       console.log(this.model);
       this.model = {name:'', descr:'', exp:0, lat:'', long:''};   
       this.sharedDataService.challengeAdded.next(true);   
-    }, error => {
-      console.log(error);
+    }, (error:any) => {
+      this.model = {name:'', descr:'', exp:0, lat:'', long:''};   
+      switch (error.status) {
+        case 400:
+          this.toastr.error('There is already a challenge with this name!','ERROR');
+          break;
+        default: 
+          this.toastr.error(error.message, 'ERROR');
+          break;
+      }
     })
   }
 }
