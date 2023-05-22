@@ -4,7 +4,6 @@ import { User } from 'src/models/user';
 import { Challenge } from 'src/models/challenge';
 import { UserService } from 'src/service/user.service';
 import { SharedDataService } from 'src/service/challenge.sharedservices';
-import { hash, compare, hashSync } from "bcryptjs"; 
 
 @Component({
   selector: 'app-formuser',
@@ -20,7 +19,6 @@ export class FormuserComponent {
   }
 
   agregarUser(){
-    this.model.password= this.encrypt(this.model.password)
     this.userService.addUsers(this.model).subscribe(data => {
       console.log(this.model);
       this.model = {name:'', surname:'', username:"", email:"", password:'',level:0, exp:'', role:"user"};   
@@ -30,10 +28,5 @@ export class FormuserComponent {
       console.log(this.model)
       console.log(error);
     })
-  }
-
-
-  encrypt(pass: string){
-    return hashSync(pass, 8);
   }
 }
