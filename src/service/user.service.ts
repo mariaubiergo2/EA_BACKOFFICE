@@ -1,52 +1,70 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { User } from 'src/models/user';
 import { environment } from 'src/env/env';
+import { SharedDataService } from './challenge.sharedservices';
 @Injectable({
   providedIn: 'root'
 })
+
 
 export class UserService {
   url = environment.API_URL + "/user";
   
   
-  
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sharedService: SharedDataService) { }
 
+  
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.url + '/get/all');
+    const token:string = this.sharedService.token;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<User[]>(this.url + '/get/all', {headers});
   }
 
   getUsers(pageNumber: number, nPerPage: number): Observable<User[]> {
-    return this.http.get<User[]>(this.url + '/get/pagination/' + pageNumber + '/' + nPerPage);
+    const token:string = this.sharedService.token;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<User[]>(this.url + '/get/pagination/' + pageNumber + '/' + nPerPage, {headers});
   }
 
   getUserCount(): Observable<String>{
-    return this.http.get<String>(this.url + '/count');
+    const token:string = this.sharedService.token;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<String>(this.url + '/count', {headers});
   } 
 
   addUsers(user: User): Observable<any>{
-    return this.http.post(this.url + '/signup', user);
+    const token:string = this.sharedService.token;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(environment.API_URL + '/auth/register', user, {headers});
   }
 
   getToken(body: any): Observable<any>{
-    return this.http.post(this.url + '/token', body);
+    return this.http.post(environment.API_URL + '/auth/login', body);
   }
 
   actualizarUser(id:String, user: User): Observable<any>{
-    return this.http.post(this.url + '/update/' + id, user);
+    const token:string = this.sharedService.token;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(this.url + '/update/' + id, user, {headers});
   }
 
   disableUser(id: String, body:any): Observable<any> {
-    return this.http.post(this.url + '/disable/' + id, body);
+    const token:string = this.sharedService.token;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(this.url + '/disable/' + id, body, {headers});
   }
 
   unableUser(id: String, body:any): Observable<any> {
-    return this.http.post(this.url + '/unable/' + id, body);
+    const token:string = this.sharedService.token;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(this.url + '/unable/' + id, body, {headers});
   }
 
   deleteUser(id: String): Observable<any> {
-    return this.http.delete(this.url + '/delete/' + id);
+    const token:string = this.sharedService.token;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.delete(this.url + '/delete/' + id, {headers});
   } 
 }

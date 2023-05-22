@@ -2,6 +2,7 @@ import { Component, OnInit  } from "@angular/core";
 import { AuthService } from "../auth/auth.service";
 import jwt_decode from 'jwt-decode';
 import { UserService } from "src/service/user.service";
+import { SharedDataService } from "src/service/challenge.sharedservices";
 
 @Component({
   selector: "app-login",
@@ -17,7 +18,7 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService, private userService: UserService) {}
+  constructor(private authService: AuthService, private userService: UserService, private sharedService: SharedDataService) {}
 
   //private isLoggedIn: boolean = false;
 
@@ -49,6 +50,8 @@ export class LoginComponent {
       var decoded:any = jwt_decode(this.token);
       if (decoded.role === "admin"){
         this.authService.setLoggedInState(true);
+        this.sharedService.token =  this.token;
+        console.log(this.sharedService.token);
         this.show = false;
         return true;
       }else{
